@@ -1,0 +1,535 @@
+.calc-app-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.calc-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calc-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--apple-primary);
+  transition: all var(--transition-fast);
+}
+
+.calc-back-btn:hover {
+  color: var(--apple-primary-hover);
+  transform: translateX(-2px);
+}
+
+.calc-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 800px;
+}
+
+.calc-hero-title {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--apple-ink);
+}
+
+.calc-hero-subtitle {
+  font-size: 16px;
+  color: var(--apple-ink-secondary);
+  line-height: 1.5;
+}
+
+.calc-presets-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.presets-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--apple-ink-tertiary);
+}
+
+.preset-chip {
+  background: var(--apple-surface-card);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--apple-ink-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.preset-chip:hover {
+  background: #ffffff;
+  color: var(--apple-primary);
+  border-color: rgba(0, 102, 204, 0.3);
+}
+
+/* Layout Grid */
+.calc-layout-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.calc-inputs-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calc-card {
+  background: var(--apple-surface-card);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calc-icon-bubble {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--apple-primary-light);
+  color: var(--apple-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.calc-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--apple-ink);
+  letter-spacing: -0.01em;
+}
+
+.calc-card-desc {
+  font-size: 12.5px;
+  color: var(--apple-ink-tertiary);
+}
+
+/* Material selector chips */
+.material-selector-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mat-chip {
+  border: 1px solid var(--apple-border);
+  background: var(--apple-canvas-parchment);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--apple-ink-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mat-chip:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--apple-ink);
+}
+
+.mat-chip.active {
+  background: var(--apple-ink);
+  color: #ffffff;
+  border-color: var(--apple-ink);
+}
+
+/* Input rows */
+.input-row-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--apple-ink-secondary);
+}
+
+.input-affix {
+  display: flex;
+  align-items: center;
+  background: var(--apple-surface-pearl);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-sm);
+  padding: 0 10px;
+  height: 38px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-affix:focus-within {
+  border-color: var(--apple-primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+  background: #ffffff;
+}
+
+.input-affix input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--apple-ink);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .input-affix input {
+    font-size: 16px; /* Prevents iOS auto-zoom on focus */
+  }
+}
+
+.affix-prefix {
+  font-size: 13px;
+  color: var(--apple-ink-tertiary);
+  margin-right: 4px;
+}
+
+.affix-suffix {
+  font-size: 12px;
+  color: var(--apple-ink-tertiary);
+  margin-left: 4px;
+}
+
+.calc-inline-metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  padding: 8px 12px;
+  background: var(--apple-canvas-parchment);
+  border-radius: var(--radius-sm);
+  color: var(--apple-ink-secondary);
+}
+
+.calc-inline-metric strong {
+  color: var(--apple-ink);
+}
+
+/* Slider */
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--apple-border-light);
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-header label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--apple-ink);
+}
+
+.slider-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--apple-primary);
+}
+
+.apple-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: #e5e5ea;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.apple-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--apple-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.apple-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--apple-ink-tertiary);
+}
+
+/* Summary Column */
+.calc-summary-column {
+  position: sticky;
+  top: 76px;
+}
+
+.summary-sticky-card {
+  background: #ffffff;
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-price-hero {
+  background: linear-gradient(180deg, #fafafc 0%, #f5f5f7 100%);
+  border-bottom: 1px solid var(--apple-border);
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-price-tag {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--apple-ink-tertiary);
+}
+
+.summary-price-figure {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--apple-ink);
+  font-weight: 700;
+}
+
+.summary-price-figure .currency-symbol {
+  font-size: 26px;
+  margin-top: 4px;
+}
+
+.summary-price-figure .amount {
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.summary-profit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--status-ready-text);
+  background: var(--status-ready-bg);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(52, 199, 89, 0.2);
+}
+
+/* Breakdown Table */
+.cost-breakdown-table {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.breakdown-heading {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--apple-ink-tertiary);
+  margin-bottom: 4px;
+}
+
+.breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: var(--apple-ink-secondary);
+}
+
+.breakdown-value {
+  font-weight: 500;
+  color: var(--apple-ink);
+}
+
+.breakdown-divider {
+  height: 1px;
+  background: var(--apple-border);
+  margin: 6px 0;
+}
+
+.breakdown-row.total-row {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--apple-ink);
+}
+
+.breakdown-row.total-row .breakdown-value {
+  font-size: 16px;
+}
+
+.breakdown-row.wholesale-row {
+  font-size: 12.5px;
+  color: var(--apple-ink-tertiary);
+}
+
+/* Summary Actions */
+.summary-actions {
+  padding: 0 24px 16px;
+}
+
+.copy-quote-btn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 14px;
+}
+
+.summary-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  background: var(--apple-surface-pearl);
+  border-top: 1px solid var(--apple-border-light);
+  font-size: 11.5px;
+  color: var(--apple-ink-tertiary);
+}
+
+@media (max-width: 900px) {
+  .calc-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-row-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .calc-summary-column {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .calc-hero {
+    gap: 6px;
+  }
+
+  .calc-hero-title {
+    font-size: 26px;
+    letter-spacing: -0.025em;
+  }
+
+  .calc-hero-subtitle {
+    font-size: 14px;
+  }
+
+  .calc-presets-bar {
+    gap: 6px;
+  }
+
+  .preset-chip {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  .calc-app-page {
+    gap: 20px;
+  }
+
+  .calc-card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .input-row-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .summary-price-figure .amount {
+    font-size: 38px;
+  }
+
+  .cost-breakdown-table {
+    padding: 16px 18px;
+  }
+
+  .summary-actions {
+    padding: 0 18px 14px;
+  }
+
+  .copy-quote-btn {
+    padding: 11px 16px;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calc-hero-title {
+    font-size: 22px;
+  }
+
+  .input-row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-card {
+    padding: 16px;
+  }
+
+  .calc-header-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

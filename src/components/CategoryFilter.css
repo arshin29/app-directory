@@ -1,0 +1,113 @@
+/* ── Category Filter Wrapper ─────────────────────────────────────────────── */
+.category-filter-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Subtle margin — toolbar handles its own gap */
+  margin: 6px 0 0;
+}
+
+/* ── Scroll Container ────────────────────────────────────────────────────── */
+.category-filter-scroll {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 4px 2px 6px;
+  max-width: 100%;
+  /* Hide scrollbar — gesture-scrollable */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Pills ───────────────────────────────────────────────────────────────── */
+.category-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--apple-border);
+  background-color: var(--apple-surface-card);
+  color: var(--apple-ink-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  box-shadow: var(--shadow-subtle);
+  flex-shrink: 0; /* never squish */
+}
+
+.category-pill-btn:hover {
+  color: var(--apple-ink);
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.category-pill-btn--active {
+  background-color: var(--apple-ink) !important;
+  color: #ffffff !important;
+  border-color: var(--apple-ink) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Count Badge ─────────────────────────────────────────────────────────── */
+.category-count-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  background: var(--apple-canvas-parchment);
+  color: var(--apple-ink-secondary);
+  transition: all var(--transition-fast);
+}
+
+.category-pill-btn--active .category-count-badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .category-filter-wrapper {
+    justify-content: flex-start;
+    /* Fade only the right edge to hint more pills exist */
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  .category-filter-scroll {
+    padding: 4px 4px 8px;
+    gap: 6px;
+  }
+
+  .category-pill-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  /* Hide counts on mobile to keep pills compact */
+  .category-count-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-filter-wrapper {
+    /* Keep the filter aligned with the page content on narrow screens. */
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .category-pill-btn {
+    padding: 6px 13px;
+    font-size: 12.5px;
+  }
+}

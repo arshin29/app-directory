@@ -1,0 +1,142 @@
+.batch-action-bar-dock {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: batchBarSlideUp var(--transition-bounce) forwards;
+}
+
+@keyframes batchBarSlideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.batch-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.2), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+}
+
+.batch-divider {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.batch-count-display {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--apple-ink-secondary);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.batch-count-display strong {
+  color: var(--apple-ink);
+  font-weight: 600;
+}
+
+/* Batch Buttons */
+.batch-btn {
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.batch-btn--subtle {
+  background: transparent;
+  color: var(--apple-ink);
+}
+
+.batch-btn--subtle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.batch-btn--danger {
+  background-color: #fff2f2;
+  color: #ff3b30;
+  border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+.batch-btn--danger:hover:not(:disabled) {
+  background-color: #ffe5e5;
+  border-color: rgba(255, 59, 48, 0.35);
+  transform: scale(1.02);
+}
+
+.batch-btn--danger:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.batch-btn--done {
+  background-color: var(--apple-ink);
+  color: #ffffff;
+}
+
+.batch-btn--done:hover {
+  background-color: #333336;
+}
+
+@media (max-width: 640px) {
+  .batch-action-bar-dock {
+    width: calc(100% - 28px);
+    bottom: 16px;
+    bottom: max(16px, calc(16px + env(safe-area-inset-bottom)));
+  }
+
+  .batch-bar-container {
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .batch-btn {
+    padding: 7px 10px;
+    font-size: 12.5px;
+  }
+
+  .batch-count-display {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .batch-btn {
+    padding: 6px 8px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .batch-btn span {
+    display: none;
+  }
+}

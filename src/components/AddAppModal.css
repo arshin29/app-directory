@@ -1,0 +1,248 @@
+.add-app-modal-sheet {
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  position: relative;
+  box-shadow: var(--shadow-modal);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0;
+  animation: modalSlideUp var(--transition-smooth) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* On mobile the form fills the viewport. */
+@media (max-width: 640px) {
+  .add-app-modal-sheet {
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.add-app-modal-closebar {
+  position: relative;
+  top: 0;
+  height: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.add-app-modal-closebar .modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  pointer-events: auto;
+}
+
+.add-app-modal-content {
+  padding: 30px 32px;
+}
+
+.add-app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.add-app-title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--apple-ink);
+}
+
+.add-app-subtitle {
+  font-size: 13.5px;
+  color: var(--apple-ink-secondary);
+}
+
+/* Form Styles */
+.add-app-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--apple-ink);
+}
+
+.label-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-hint-msg {
+  font-size: 11.5px;
+  color: var(--apple-ink-tertiary);
+  line-height: 1.35;
+}
+
+.req {
+  color: #ff3b30;
+}
+
+.apple-text-input,
+.apple-select-input {
+  background-color: var(--apple-surface-pearl);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 11px;
+  font-size: 13px;
+  color: var(--apple-ink);
+  outline: none;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .apple-text-input,
+  .apple-select-input {
+    font-size: 16px; /* Prevents iOS auto-zoom on focus */
+  }
+}
+
+.apple-text-input:focus,
+.apple-select-input:focus {
+  background-color: #ffffff;
+  border-color: var(--apple-primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.14);
+}
+
+.input-error {
+  border-color: #ff3b30 !important;
+  background-color: #fff9f9 !important;
+}
+
+.field-error-msg {
+  font-size: 11px;
+  color: #ff3b30;
+}
+
+.apple-select-input {
+  cursor: pointer;
+}
+
+/* Actions */
+.add-app-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--apple-border-light);
+}
+
+.add-submit-btn {
+  padding: 9px 20px;
+  font-size: 13.5px;
+}
+
+/* Edit modal — delete on left, cancel+save on right */
+.edit-app-actions {
+  justify-content: space-between;
+}
+
+.edit-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.07);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.edit-delete-btn:hover {
+  background: rgba(255, 59, 48, 0.14);
+  border-color: rgba(255, 59, 48, 0.35);
+}
+
+@media (max-width: 600px) {
+  .add-app-modal-content {
+    padding: 20px 16px max(32px, calc(32px + env(safe-area-inset-bottom)));
+  }
+
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .add-app-actions {
+    flex-direction: column-reverse;
+  }
+
+  .add-app-actions .apple-button {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+
+  /* Edit modal mobile: stack delete below, cancel+save fill row */
+  .edit-app-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .edit-actions-right {
+    width: 100%;
+  }
+
+  .edit-actions-right .apple-button {
+    flex: 1;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+
+  .edit-delete-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+}

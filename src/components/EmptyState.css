@@ -1,0 +1,70 @@
+.empty-state-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 32px;
+  background-color: var(--apple-surface-card);
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-xl);
+  max-width: 720px;
+  width: 100%;
+  margin: 20px auto;
+  box-shadow: var(--shadow-subtle);
+}
+
+.empty-state-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--apple-canvas-parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--apple-ink-tertiary);
+  border: 1px solid var(--apple-border);
+}
+
+.empty-state-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--apple-ink);
+  margin-bottom: 8px;
+}
+
+.empty-state-text {
+  font-size: 14.5px;
+  color: var(--apple-ink-secondary);
+  margin-bottom: 4px;
+}
+
+.empty-state-subtext {
+  font-size: 13.5px;
+  color: var(--apple-ink-tertiary);
+  margin-bottom: 24px;
+}
+
+.empty-clear-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .empty-state-wrapper {
+    padding: 40px 20px;
+    margin: 10px 0;
+    max-width: 100%;
+    border-radius: var(--radius-lg);
+  }
+
+  .empty-state-title {
+    font-size: 18px;
+  }
+
+  .empty-state-text {
+    font-size: 14px;
+  }
+}

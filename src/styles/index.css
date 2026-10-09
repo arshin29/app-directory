@@ -1,0 +1,146 @@
+@import './apple-tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: var(--apple-ink);
+  background-color: var(--apple-canvas-parchment);
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.47;
+  letter-spacing: -0.011em;
+  background-color: var(--apple-canvas-parchment);
+  color: var(--apple-ink);
+  overflow-x: hidden;
+}
+
+/* Apple Typography Defaults */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--apple-ink);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+}
+
+a {
+  color: var(--apple-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--apple-primary-hover);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Subtle focus state */
+:focus-visible {
+  outline: 2px solid var(--apple-primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* App Container Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px 16px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 16px 14px 80px;
+    padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom)));
+  }
+}
+
+/* Apple Minimal Global Footer */
+.apple-global-footer {
+  width: 100%;
+  background-color: var(--apple-surface-pearl);
+  border-top: 1px solid var(--apple-border);
+  padding: 28px 24px;
+  font-size: 12px;
+  color: var(--apple-ink-tertiary);
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

@@ -1,0 +1,171 @@
+.directory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Toolbar ──────────────────────────────────────────────────────────────── */
+.directory-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.search-and-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 640px;
+}
+
+.search-and-action-row .search-bar-wrapper {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.add-app-btn {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+  flex-shrink: 0;
+}
+
+/* ── Subtoolbar ───────────────────────────────────────────────────────────── */
+.directory-subtoolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--apple-border);
+  gap: 10px;
+}
+
+.results-counter {
+  font-size: 13px;
+  color: var(--apple-ink-secondary);
+  white-space: nowrap;
+}
+
+.results-counter strong {
+  color: var(--apple-ink);
+}
+
+.subtoolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ── Results Section ──────────────────────────────────────────────────────── */
+.directory-results-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Auth Pill (subtoolbar) ────────────────────────────────────────────────── */
+.auth-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 0.18s;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  font-family: inherit;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .directory-page {
+    gap: 14px;
+  }
+
+  /* Restore visual breathing room above the card grid */
+  .directory-results-section {
+    margin-top: 14px;
+  }
+
+  .directory-toolbar {
+    gap: 10px;
+  }
+
+  .search-and-action-row {
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .add-app-btn {
+    height: 44px;
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    flex: 0 0 44px;
+    padding: 0;
+    font-size: 13px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  /* Icon-only on mobile — hide label */
+  .add-app-btn span {
+    display: none;
+  }
+
+  /* Subtoolbar stays as a single row: counter left, sort right */
+  .directory-subtoolbar {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 0;
+    padding-bottom: 10px;
+    gap: 8px;
+  }
+
+  .results-counter {
+    font-size: 12px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .subtoolbar-actions {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .search-and-action-row {
+    gap: 6px;
+  }
+
+  .add-app-btn {
+    height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    width: 40px;
+    flex-basis: 40px;
+    padding: 0;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+}

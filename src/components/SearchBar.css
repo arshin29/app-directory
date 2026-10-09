@@ -1,0 +1,84 @@
+.search-bar-wrapper {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: var(--apple-surface-card);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-pill);
+  padding: 0 16px;
+  height: 44px;
+  box-shadow: var(--shadow-subtle);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.search-bar-container:focus-within {
+  border-color: var(--apple-primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+  background-color: #ffffff;
+}
+
+.search-icon {
+  color: var(--apple-ink-tertiary);
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.search-bar-container:focus-within .search-icon {
+  color: var(--apple-primary);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14.5px;
+  color: var(--apple-ink);
+  outline: none;
+  letter-spacing: -0.01em;
+}
+
+.search-input::placeholder {
+  color: var(--apple-ink-tertiary);
+}
+
+.search-clear-btn {
+  background: var(--apple-hairline);
+  border: none;
+  color: var(--apple-ink-secondary);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 6px;
+  transition: all var(--transition-fast);
+}
+
+.search-clear-btn:hover {
+  background: var(--apple-ink-tertiary);
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .search-bar-wrapper {
+    max-width: 100%;
+  }
+
+  .search-input {
+    /* Prevent iOS auto-zoom on focus (requires font-size >= 16px) */
+    font-size: 16px;
+  }
+
+  .search-bar-container {
+    height: 44px;
+  }
+}

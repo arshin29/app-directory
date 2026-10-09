@@ -1,0 +1,71 @@
+.sort-dropdown-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--apple-ink-tertiary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sort-icon {
+  color: var(--apple-ink-tertiary);
+}
+
+.sort-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sort-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--apple-surface-card);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 30px 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--apple-ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.sort-select:hover {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--apple-primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+.select-chevron {
+  position: absolute;
+  right: 10px;
+  color: var(--apple-ink-secondary);
+  pointer-events: none;
+}
+
+/* ── Mobile: hide label, tighten select ────────────────────────────────────── */
+@media (max-width: 640px) {
+  .sort-label {
+    display: none;
+  }
+
+  .sort-select {
+    font-size: 13px;
+    padding: 5px 26px 5px 11px;
+  }
+}

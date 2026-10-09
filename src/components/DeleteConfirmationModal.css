@@ -1,0 +1,213 @@
+.delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: deleteFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 640px) {
+  .delete-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+}
+
+.delete-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow:
+    0 20px 40px -12px rgba(0, 0, 0, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: deleteScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 640px) {
+  .delete-modal-card {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 24px 20px;
+    padding-bottom: max(28px, calc(28px + env(safe-area-inset-bottom)));
+  }
+
+  .delete-modal-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .delete-btn-cancel,
+  .delete-btn-confirm {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.delete-modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--apple-ink-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.delete-modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--apple-ink);
+}
+
+.delete-modal-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 59, 48, 0.1);
+  color: #ff3b30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.delete-modal-icon {
+  stroke-width: 2.2;
+}
+
+.delete-modal-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--apple-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.delete-modal-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--apple-ink-secondary);
+  margin-bottom: 16px;
+}
+
+.delete-modal-description strong {
+  color: var(--apple-ink);
+}
+
+.delete-apps-preview-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
+.delete-app-tag {
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--apple-ink);
+  padding: 4px 10px;
+  border-radius: 12px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.delete-app-tag-more {
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(255, 59, 48, 0.08);
+  color: #ff3b30;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.delete-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.delete-btn-cancel {
+  flex: 1;
+  height: 42px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 12px;
+}
+
+.delete-btn-confirm {
+  flex: 1.2;
+  height: 42px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  background: #ff3b30;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(255, 59, 48, 0.25);
+  transition: all 0.15s ease;
+}
+
+.delete-btn-confirm:hover {
+  background: #e03228;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 59, 48, 0.35);
+}
+
+.delete-btn-confirm:active {
+  transform: translateY(0);
+}
+
+@keyframes deleteFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes deleteScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
